@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+</head>
+<body>
+<script language = "javascript">
+
+
+$(document).ready(function()
+{
+
+    $("#button1").click(function()
+    {
+        $.get("https://mluband02.github.io/productsJSON/products.json", 
+        function(data)
+        {
+            
+            for (i = 0; i<data.products.length; i++)
+            {
+                $("#result").append("<div class = 'name'>" + data.products[i].name + "</div>")
+                $("#result").append("<div class = 'price'>" + data.products[i].price + "</div>")
+                $("#result").append("<div class = 'desc'>" + data.products[i].description + "</div>")
+                $("#result").append("<div class = 'cats'> Categories: " + data.products[i].categories + "</div>")
+                $("#result").append("<hr>")
+            }
+            $(".name").css("font-size", "30px");
+            $(".name").css("font-weight", "bold");
+            $(".price").css("font-size", "25px");
+            $(".price").css("font-weight", "bold");
+            $(".desc").css("font-size", "20px")
+            $(".cats").css("font-size", "15px")
+
+        })
+
+    })
+    
+})
+
+
+
+
+</script>
+<input type = 'button' name = 'btn1' id = 'button1' value = "button">
+<div id = result></div>
+</body>
+
+</html>
